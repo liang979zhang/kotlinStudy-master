@@ -15,7 +15,8 @@ class MainActivity : BaseActivity() {
 
     var list = mutableListOf<Fragment>()
 
-    var strList = mutableListOf<String>()
+    var mainpager :MainPageAdapger ?= null
+
 
     var instance: MainActivity? = null
 
@@ -24,48 +25,15 @@ class MainActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main2)
         instance = this
+        mainpager = MainPageAdapger(supportFragmentManager,list)
+        list.add(AFragment().newInstance("aa"))
+        list.add(AFragment().newInstance("bb"))
+        list.add(AFragment().newInstance("vv"))
+        viewpager.adapter =mainpager
 
-        strList.add("viewpager测试")
-        for (it in 1..10) {
-            strList.add("aaaa$it aaaaa")
-        }
 
-
-
-        rel.layoutManager = LinearLayoutManager(this)
-//        listap = ListAdapter(this, Click())
-        listap = ListAdapter(this, object : ItemClick {
-            override fun click(position: Int, holder: RecyclerView.ViewHolder) {
-
-            }
-        })
-        rel.adapter = listap
-
-        listap!!.setData(strList)
     }
 
 
-    inner class Click() : ItemClick {
-        override fun click(position: Int, holder: RecyclerView.ViewHolder) {
-            when (position) {
-                -11 -> {
-                    Toast.makeText(this@MainActivity, "aaa${holder.adapterPosition}", Toast.LENGTH_SHORT).show()
 
-                    when (holder.adapterPosition) {
-                        1 -> {
-
-                        }
-                    }
-
-
-                }
-                -12 -> {
-
-
-                }
-            }
-
-        }
-
-    }
 }
