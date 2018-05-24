@@ -21,13 +21,12 @@ class AFragment : Fragment() {
     }
 
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
 
         var aa = arguments.getString("aa")
 
         tv_1!!.text = aa
-
     }
 
     public fun newInstance(s: String): Fragment {
