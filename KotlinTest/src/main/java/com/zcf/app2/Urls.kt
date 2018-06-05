@@ -5,5 +5,5 @@ package com.zcf.app2
  */
 object Urls {
 
-    val url: String = "aaa"
+    val url: String = "http://www.wanandroid.com/"
 }
