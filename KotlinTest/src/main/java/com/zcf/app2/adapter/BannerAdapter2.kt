@@ -13,7 +13,7 @@ import kotlinx.android.synthetic.main.view_banner_item.view.*
 /**
  * Created by Administrator on 2018/6/5.
  */
-class BannerAdapter : RecyclerView.Adapter<BannerAdapter.Holder> {
+class BannerAdapter2 : RecyclerView.Adapter<BannerAdapter2.Holder> {
 
     var context: Context? = null
 
@@ -31,13 +31,12 @@ class BannerAdapter : RecyclerView.Adapter<BannerAdapter.Holder> {
     }
 
     override fun getItemCount(): Int {
-        return if (data==null) 0 else data!!.size
-
+        return if (data == null) 0 else data!!.size
     }
 
     override fun onBindViewHolder(holder: Holder?, position: Int) {
 
-        Glide.with(context).load(data!!.get(position).imagePath).placeholder(R.mipmap.ic_launcher_round).into(holder!!.itemView.iv_icon)
+        Glide.with(context).load(data!!.get(position).imagePath).into(holder!!.itemView.iv_icon)
 
 
     }

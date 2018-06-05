@@ -1,4 +1,4 @@
-package com.zcf.app2.rel
+package com.zcf.app2
 
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
@@ -7,12 +7,11 @@ import android.support.v4.app.Fragment
 import android.support.v4.view.GravityCompat
 import android.support.v7.app.ActionBarDrawerToggle
 import android.widget.Toast
-import com.zcf.app2.BaseActivity
-import com.zcf.app2.R
 import com.zcf.app2.fragment.KnowledgeFragment
 import com.zcf.app2.fragment.MainFragment
 import com.zcf.app2.fragment.NavigationFragment
 import com.zcf.app2.fragment.ProjectFragment
+import com.zcf.app2.rel.ListAdapter
 import com.zcf.app2.utils.BottomNavigationViewHelper
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.view_drawable.*

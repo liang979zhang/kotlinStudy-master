@@ -6,8 +6,11 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.scwang.smartrefresh.layout.api.RefreshLayout
+import com.scwang.smartrefresh.layout.listener.OnRefreshLoadMoreListener
 import com.zcf.app2.R
 import com.zcf.app2.adapter.BannerAdapter
+import com.zcf.app2.adapter.BannerAdapter2
 import com.zcf.app2.bean.BanerBean
 import com.zcf.app2.utils.HttpManager
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -20,22 +23,42 @@ import kotlinx.android.synthetic.main.view_main_fragment.*
 class MainFragment : BaseFragment() {
 
     var bannerAdapter: BannerAdapter? = null
+    var bannerAdapter2: BannerAdapter2? = null
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater!!.inflate(R.layout.view_main_fragment, container, false)
     }
 
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         net()
+        refreshLayout.autoRefresh()
+        refreshLayout.autoLoadMore()
+        refreshLayout.setOnRefreshLoadMoreListener(object : OnRefreshLoadMoreListener {
+            override fun onLoadMore(refreshLayout: RefreshLayout) {
+
+
+            }
+
+            override fun onRefresh(refreshLayout: RefreshLayout) {
+                net()
+            }
+
+
+        })
         bannerAdapter = BannerAdapter(activity)
+        bannerAdapter2 = BannerAdapter2(activity)
         recyclerview.adapter = bannerAdapter
+        recyclerview2.adapter = bannerAdapter2
 
-
+        recyclerview.setOrientation(RecyclerView.HORIZONTAL)
+        recyclerview2.setOrientation(RecyclerView.VERTICAL)
+        recyclerview2.setScrollAnimationDuration(300)
         recyclerview.setScrollAnimationDuration(300)
-        recyclerview.setOrientation(RecyclerView.VERTICAL)
         recyclerview.setVisibleChildCount(1)
+        recyclerview2.setVisibleChildCount(2)
+
     }
 
     override fun onHiddenChanged(hidden: Boolean) {
@@ -44,7 +67,6 @@ class MainFragment : BaseFragment() {
         if (hidden) {
             net()
         }
-
 
 
     }
@@ -56,7 +78,8 @@ class MainFragment : BaseFragment() {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ acticle: BanerBean ->
                     Log.i("acticle", acticle.data!!.size.toString())
-                    bannerAdapter!!.setdata(acticle.data)
+                    bannerAdapter!!.setdata(acticle.data.subList(0, 3))
+                    bannerAdapter2!!.setdata(acticle.data.subList(4, acticle.data.size))
                 }, { error ->
                     error.printStackTrace()
                 }, {
