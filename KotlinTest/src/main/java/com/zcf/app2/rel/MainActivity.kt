@@ -13,7 +13,6 @@ import com.zcf.app2.fragment.KnowledgeFragment
 import com.zcf.app2.fragment.MainFragment
 import com.zcf.app2.fragment.NavigationFragment
 import com.zcf.app2.fragment.ProjectFragment
-import com.zcf.app2.pager.ViewPageAdapger
 import com.zcf.app2.utils.BottomNavigationViewHelper
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.view_drawable.*
@@ -57,10 +56,14 @@ class MainActivity : BaseActivity() {
         list.add(ProjectFragment())
 
 
-        var viewPager = ViewPageAdapger(supportFragmentManager, list)
+//        var viewPager = ViewPageAdapger(supportFragmentManager, list)
+//
+//        main_pager.adapter = viewPager
+//        main_pager.currentItem = 0
+        mainfragment = MainFragment()
 
-        main_pager.adapter = viewPager
-        main_pager.currentItem = 0
+
+        addFragment(mainfragment!!)
 
 
     }

@@ -24,11 +24,22 @@ class MainFragment : BaseFragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        net()
     }
 
     override fun onHiddenChanged(hidden: Boolean) {
         super.onHiddenChanged(hidden)
+
+        if (hidden) {
+            net()
+        }
+
+
+
+    }
+
+    private fun net() {
+
         HttpManager.manager.getServer().getBanner()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -41,6 +52,5 @@ class MainFragment : BaseFragment() {
                 }, {
                     Log.i("Kotlin", "onStart")
                 })
-
     }
 }
