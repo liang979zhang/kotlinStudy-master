@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.zcf.app2.R
+import com.zcf.app2.bean.BanerBean
 import kotlinx.android.synthetic.main.view_banner_item.view.*
 
 /**
@@ -42,6 +43,11 @@ class BannerAdapter : RecyclerView.Adapter<BannerAdapter.Holder> {
 
 
     class Holder(itemView: View?) : RecyclerView.ViewHolder(itemView) {
+
+    }
+
+    fun setdata(data: List<BanerBean.Data>) {
+
 
     }
 }
