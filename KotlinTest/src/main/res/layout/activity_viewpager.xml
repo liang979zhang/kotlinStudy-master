@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.zcf.app2.pager.ViewpagerActivity">
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"></android.support.v4.view.ViewPager>
+
+
+    <com.yinglan.alphatabs.AlphaTabsIndicator
+        android:id="@+id/alphaIndicator"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal">
+
+        <com.yinglan.alphatabs.AlphaTabView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="5dp"
+            app:tabIconNormal="@mipmap/shouye"
+            app:tabIconSelected="@mipmap/shouyexuan"
+            app:tabText="首页"
+            app:tabTextSize="12sp"
+            app:textColorNormal="@color/colorPrimary"
+            app:textColorSelected="@color/colorAccent" />
+
+        <com.yinglan.alphatabs.AlphaTabView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="5dp"
+            app:tabIconNormal="@mipmap/fujin"
+            app:tabIconSelected="@mipmap/fujinxuan"
+            app:tabText="周边"
+            app:tabTextSize="12sp"
+            app:textColorNormal="@color/colorPrimary"
+            app:textColorSelected="@color/colorAccent" />
+
+
+        <com.yinglan.alphatabs.AlphaTabView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="5dp"
+            app:tabIconNormal="@mipmap/gouwuche"
+            app:tabIconSelected="@mipmap/gouwuchexuan"
+            app:tabText="购物车"
+            app:tabTextSize="12sp"
+            app:textColorNormal="@color/colorPrimary"
+            app:textColorSelected="@color/colorAccent" />
+
+        <com.yinglan.alphatabs.AlphaTabView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="5dp"
+            app:tabIconNormal="@mipmap/wode"
+            app:tabIconSelected="@mipmap/wodexuan"
+            app:tabText="我"
+            app:tabTextSize="12sp"
+            app:textColorNormal="@color/colorPrimary"
+            app:textColorSelected="@color/colorAccent" />
+
+
+    </com.yinglan.alphatabs.AlphaTabsIndicator>
+
+
+</LinearLayout>

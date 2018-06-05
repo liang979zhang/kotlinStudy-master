@@ -2,15 +2,18 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-            android:id="@+id/navigation_home"
-            android:title="首页"/>
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/ic_home_black_24dp"
+        android:title="首页" />
 
     <item
-            android:id="@+id/navigation_dashboard"
-            android:title="CC"/>
+        android:id="@+id/navigation_dashboard"
+        android:icon="@drawable/main_knowledge_system"
+        android:title="知识体系" />
 
     <item
-            android:id="@+id/navigation_notifications"
-            android:title="BB"/>
+        android:id="@+id/navigation_notifications"
+        android:icon="@drawable/ic_notifications_black_24dp"
+        android:title="项目" />
 
 </menu>

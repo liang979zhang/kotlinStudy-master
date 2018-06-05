@@ -1,4 +1,4 @@
-package com.zcf.app2
+package com.zcf.app2.rel
 
 import android.content.Context
 import android.support.v7.widget.RecyclerView
@@ -6,7 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import android.widget.Toast
+import com.zcf.app2.ItemClick
+import com.zcf.app2.R
 
 /**
  * Created by Administrator on 2018/5/21.

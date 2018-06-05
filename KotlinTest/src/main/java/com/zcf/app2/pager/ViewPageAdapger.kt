@@ -1,11 +1,11 @@
-package com.zcf.app2
+package com.zcf.app2.pager
 
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
 import android.util.Log
 
-class MainPageAdapger : FragmentPagerAdapter {
+class ViewPageAdapger : FragmentPagerAdapter {
 
 
     var list: MutableList<Fragment>? = null
