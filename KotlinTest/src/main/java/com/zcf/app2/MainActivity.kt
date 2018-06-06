@@ -6,6 +6,7 @@ import android.support.design.widget.NavigationView
 import android.support.v4.app.Fragment
 import android.support.v4.view.GravityCompat
 import android.support.v7.app.ActionBarDrawerToggle
+import android.view.Menu
 import android.widget.Toast
 import com.zcf.app2.fragment.KnowledgeFragment
 import com.zcf.app2.fragment.MainFragment
@@ -28,7 +29,7 @@ class MainActivity : BaseActivity() {
 
     var instance: MainActivity? = null
 
-     var mainfragment: MainFragment?=null
+    lateinit var mainfragment: MainFragment
 
 
     var knowledgefragment: KnowledgeFragment? = null
@@ -62,7 +63,7 @@ class MainActivity : BaseActivity() {
         mainfragment = MainFragment()
 
 
-        addFragment(mainfragment!!)
+        addFragment(mainfragment)
 
 
     }
@@ -97,10 +98,10 @@ class MainActivity : BaseActivity() {
         when (item.itemId) {
             R.id.navigation_home -> {
                 toobar.title = "首页"
-                if (mainfragment == null) {
-                    mainfragment = MainFragment()
-                }
-                addFragment(mainfragment!!)
+//                if (mainfragment == null) {
+//                    mainfragment = MainFragment()
+//                }
+                addFragment(mainfragment)
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_dashboard -> {
@@ -136,24 +137,21 @@ class MainActivity : BaseActivity() {
     }
 
     private fun addFragment(fragment: Fragment) {
-
-
         var transaction = supportFragmentManager.beginTransaction()
-
         if (!supportFragmentManager.fragments.contains(fragment)) {//管理器没有此fragment  添加并显示
+
             transaction.add(R.id.main_fragment, fragment).commit()
-        } else {
-
-            for (fra in supportFragmentManager.fragments) {
-                if (fra.equals(fragment)) {
-                    transaction.show(fragment)
-                } else {
-                    transaction.hide(fragment)
-                }
-            }
-            transaction.commit()
-
         }
+
+        var transaction2 = supportFragmentManager.beginTransaction()
+        for (fra in supportFragmentManager.fragments) {
+            if (fra.equals(fragment)) {
+                transaction2.show(fragment)
+            } else {
+                transaction2.hide(fra)
+            }
+        }
+        transaction2.commit()
 
 
     }
@@ -172,6 +170,11 @@ class MainActivity : BaseActivity() {
         }
 
 
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.toolbar,menu)
+        return true
     }
 
 }

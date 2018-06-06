@@ -1,5 +1,6 @@
 package com.zcf.app2.utils
 
+import com.zcf.app2.bean.ArticleModel
 import com.zcf.app2.bean.BanerBean
 import io.reactivex.Observable
 import okhttp3.RequestBody
@@ -38,13 +39,13 @@ interface NetServer {
 //              @Query("repassword") repassword : String): Observable<LoginModel>
 //
 //
-//    /**
-//     * 首页数据
-//     * http://www.wanandroid.com/article/list/0/json
-//     */
-//    @GET("article/list/{page}/json")
-//    fun homeArticle(@Path("page") page : Int) : Observable<ArticleModel>
-//
+    /**
+     * 首页数据
+     * http://www.wanandroid.com/article/list/0/json
+     */
+    @GET("article/list/{page}/json")
+    fun homeArticle(@Path("page") page : Int) : Observable<ArticleModel>
+
 //    /**
 //     * http://www.wanandroid.com/friend/json
 //     * 常用网站
