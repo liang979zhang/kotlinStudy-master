@@ -7,11 +7,9 @@ import android.support.v4.app.Fragment
 import android.support.v4.view.GravityCompat
 import android.support.v7.app.ActionBarDrawerToggle
 import android.view.Menu
+import android.view.MenuItem
 import android.widget.Toast
-import com.zcf.app2.fragment.KnowledgeFragment
-import com.zcf.app2.fragment.MainFragment
-import com.zcf.app2.fragment.NavigationFragment
-import com.zcf.app2.fragment.ProjectFragment
+import com.zcf.app2.fragment.*
 import com.zcf.app2.rel.ListAdapter
 import com.zcf.app2.utils.BottomNavigationViewHelper
 import kotlinx.android.synthetic.main.activity_main.*
@@ -23,13 +21,15 @@ class MainActivity : BaseActivity() {
 
     var listap: ListAdapter? = null
 
-    var list = mutableListOf<Fragment>()
-
-    var strList = mutableListOf<String>()
 
     var instance: MainActivity? = null
 
     lateinit var mainfragment: MainFragment
+
+     val ofenFragment: OfenFragment by lazy {
+
+         OfenFragment()
+     }
 
 
     var knowledgefragment: KnowledgeFragment? = null
@@ -51,20 +51,27 @@ class MainActivity : BaseActivity() {
         //侧滑菜单的监听
         nav_view.setNavigationItemSelectedListener(mNavigationItemSelectedListener)
         main_navigation.setOnNavigationItemSelectedListener(mOnNavigationItemReselectedListener)
-        list.add(MainFragment())
-        list.add(KnowledgeFragment())
-        list.add(ProjectFragment())
 
 
-//        var viewPager = ViewPageAdapger(supportFragmentManager, list)
-//
-//        main_pager.adapter = viewPager
-//        main_pager.currentItem = 0
         mainfragment = MainFragment()
 
 
         addFragment(mainfragment)
+        toobar.setOnMenuItemClickListener { item: MenuItem? ->
+            when (item!!.itemId) {
+                R.id.menu_hot ->{
 
+                }
+
+                R.id.menu_often ->{
+                    addFragment(ofenFragment)
+                }
+            }
+
+
+
+            return@setOnMenuItemClickListener true
+        }
 
     }
 

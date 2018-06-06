@@ -2,6 +2,7 @@ package com.zcf.app2.utils
 
 import com.zcf.app2.bean.ArticleModel
 import com.zcf.app2.bean.BanerBean
+import com.zcf.app2.bean.OfenData
 import io.reactivex.Observable
 import okhttp3.RequestBody
 import retrofit2.http.*
@@ -46,13 +47,13 @@ interface NetServer {
     @GET("article/list/{page}/json")
     fun homeArticle(@Path("page") page : Int) : Observable<ArticleModel>
 
-//    /**
-//     * http://www.wanandroid.com/friend/json
-//     * 常用网站
-//     */
-//    @GET("friend/json")
-//    fun getFriendList() : Observable<FriendModel>
-//
+    /**
+     * http://www.wanandroid.com/friend/json
+     * 常用网站
+     */
+    @GET("friend/json")
+    fun getFriendList() : Observable<OfenData>
+
 //    /**
 //     * http://www.wanandroid.com/tree/json
 //     * 知识体系

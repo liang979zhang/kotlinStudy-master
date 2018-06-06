@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.bumptech.glide.Glide
 import com.zcf.app2.R
-import com.zcf.app2.bean.Datas
+import com.zcf.app2.bean.ArticleModel
 import face.com.zdl.cctools.TimeUtils
 import kotlinx.android.synthetic.main.item_view_adapter_home.view.*
 
@@ -18,7 +18,7 @@ class HomeAdapter : RecyclerView.Adapter<HomeAdapter.Holder> {
 
     private var context: Context? = null
 
-    private var datas: List<Datas>? = null
+    private var datas: List<ArticleModel.Data.Datas>? = null
 
     constructor(context: Context) {
         this.context = context
@@ -54,7 +54,7 @@ class HomeAdapter : RecyclerView.Adapter<HomeAdapter.Holder> {
 
     class Holder(itemView: View?) : RecyclerView.ViewHolder(itemView)
 
-    fun setdata(datas: List<Datas>) {
+    fun setdata(datas: List<ArticleModel.Data.Datas>) {
         this.datas = datas
         notifyDataSetChanged()
 

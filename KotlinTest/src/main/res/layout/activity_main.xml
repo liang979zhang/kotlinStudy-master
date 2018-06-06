@@ -12,6 +12,7 @@
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
         <android.support.v7.widget.Toolbar
+            android:paddingRight="30dp"
             android:id="@+id/toobar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"

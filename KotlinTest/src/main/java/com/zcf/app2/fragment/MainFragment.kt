@@ -14,7 +14,6 @@ import com.zcf.app2.adapter.BannerAdapter2
 import com.zcf.app2.adapter.HomeAdapter
 import com.zcf.app2.bean.ArticleModel
 import com.zcf.app2.bean.BanerBean
-import com.zcf.app2.bean.Datas
 import com.zcf.app2.utils.HttpManager
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
@@ -31,7 +30,7 @@ class MainFragment : BaseFragment() {
     var page = -1
 
     var ismore = false
-    private var datas = mutableListOf<Datas>()
+    private var datas = mutableListOf<ArticleModel.Data.Datas>()
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater!!.inflate(R.layout.view_main_fragment, container, false)
