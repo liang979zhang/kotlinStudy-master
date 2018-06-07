@@ -26,10 +26,6 @@ class MainActivity : BaseActivity() {
 
     lateinit var mainfragment: MainFragment
 
-     val ofenFragment: OfenFragment by lazy {
-
-         OfenFragment()
-     }
 
 
     var knowledgefragment: KnowledgeFragment? = null
@@ -64,7 +60,11 @@ class MainActivity : BaseActivity() {
                 }
 
                 R.id.menu_often ->{
-                    addFragment(ofenFragment)
+//                    addFragment(ofenFragment)
+
+                    var hotFragment = HotDialogFragment()
+                    hotFragment.show(supportFragmentManager,"aaa")
+
                 }
             }
 
